@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import pg from "pg";
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 const db = new pg.Client({
   user: "postgres",
@@ -69,6 +69,6 @@ async function nextQuestion() {
   currentQuestion = randomCountry;
 }
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running!`);
 });
